@@ -1,6 +1,13 @@
 # Compiled class file
 *.class
-
+# to ignore target files
+.classpath
+.project
+.settings/
+target/
+*/target/*
+*/target/**
+.idea/
 # Log file
 *.log
 
