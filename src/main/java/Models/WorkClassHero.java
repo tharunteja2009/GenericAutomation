@@ -5,7 +5,7 @@ public class WorkClassHero {
   private String birthday;
   private String gender;
   private String name;
-  private String natId;
+  private String natid;
   private String salary;
   private String tax;
 
@@ -33,12 +33,12 @@ public class WorkClassHero {
     this.name = name;
   }
 
-  public String getNatId() {
-    return natId;
+  public String getNatid() {
+    return natid;
   }
 
-  public void setNatId(String natId) {
-    this.natId = natId;
+  public void setNatid(String natid) {
+    this.natid = natid;
   }
 
   public String getSalary() {
@@ -63,7 +63,7 @@ public class WorkClassHero {
         "dob='" + birthday + '\'' +
         ", gender='" + gender + '\'' +
         ", name='" + name + '\'' +
-        ", natId='" + natId + '\'' +
+        ", natid='" + natid + '\'' +
         ", salary='" + salary + '\'' +
         ", tax='" + tax + '\'' +
         '}';
