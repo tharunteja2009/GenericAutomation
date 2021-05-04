@@ -16,6 +16,7 @@ Feature: Citizen Disbursement System
 
   Scenario: 3. As the Clerk, I should be able to upload a csv file to a portal so that I can populate the database from a UI
     Given user open the home page
+    And user fetch already available work class hero count
     When user bulk upload csv for list of working class heros
     Then user can see bulk working class hero's available in system
 
