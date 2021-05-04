@@ -5,7 +5,6 @@ import Models.WorkClassHero;
 import Utils.PropertyManager;
 import Utils.RestClient;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 import io.restassured.response.Response;
 import java.lang.reflect.Type;
 import java.util.ArrayList;

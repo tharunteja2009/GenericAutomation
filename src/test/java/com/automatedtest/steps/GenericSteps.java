@@ -1,7 +1,6 @@
 package com.automatedtest.steps;
 
 import DataProvider.WorkClassHeroDataProvider;
-import Exceptions.GenericAutomationException;
 import Models.ReliefSummary;
 import Models.WorkClassHero;
 import Pages.HomePage;
@@ -14,10 +13,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
@@ -66,7 +62,8 @@ public class GenericSteps {
     ReliefSummary previousReliefSummary = (ReliefSummary) cache.get("oldreliefSummary").get();
     Integer currentCount = Integer.parseInt(currentReliefSummary.getTotalWorkingClassHeroes());
     Integer previousCount = Integer.parseInt(previousReliefSummary.getTotalWorkingClassHeroes());
-    Assert.assertTrue("more than one record must be inserted", ((currentCount - previousCount) > 1));
+    Assert
+        .assertTrue("more than one record must be inserted", ((currentCount - previousCount) > 1));
   }
 
   @Given("user open the home page")
@@ -96,10 +93,11 @@ public class GenericSteps {
     ReliefSummary previousReliefSummary = (ReliefSummary) cache.get("oldreliefSummary").get();
     Integer currentCount = Integer.parseInt(currentReliefSummary.getTotalWorkingClassHeroes());
     Integer previousCount = Integer.parseInt(previousReliefSummary.getTotalWorkingClassHeroes());
-    Assert.assertTrue("some records must be inserted via bulk upload", ((currentCount - previousCount) > 0));
+    Assert.assertTrue("some records must be inserted via bulk upload",
+        ((currentCount - previousCount) > 0));
   }
 
-  public void fetchCountOfWorkClassHeros(){
+  public void fetchCountOfWorkClassHeros() {
     ReliefSummary reliefSummary = OppenheimerService.getTaxReliefSummary();
     cache.put("oldreliefSummary", reliefSummary);
   }
