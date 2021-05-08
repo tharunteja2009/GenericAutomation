@@ -20,3 +20,13 @@ Feature: Citizen Disbursement System
     When user bulk upload csv for list of working class heros
     Then user can see bulk working class hero's available in system
 
+  Scenario: 4. As the Bookkeeper, I should be able to query the amount of tax relief for each person in the database so that I can report the figures to my Bookkeeping Manager
+    Given user should collect existing working class hero in system
+    When user fetch tax relief of each working class hero from system
+    Then user can report tax relief of each working clas hero
+
+
+  Scenario: 5. As the Governor, I should be able to see a button on the screen so that I can dispense tax relief for my working class heroes
+    Given user open the home page
+    When user click on dispense button
+    Then user can see the successfull dispension

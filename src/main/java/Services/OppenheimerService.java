@@ -1,11 +1,11 @@
 package Services;
 
 import Models.ReliefSummary;
+import Models.TaxRelief;
 import Models.WorkClassHero;
 import Utils.PropertyManager;
 import Utils.RestClient;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 import io.restassured.response.Response;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -31,15 +31,6 @@ public class OppenheimerService {
     response.then().statusCode(202);
   }
 
-  public static List<WorkClassHero> getTaxRelief(){
-    Response response = RestClient.given().request().contentType("application/json")
-        .get(oppenheimerServiceUrl+"/calculator/taxRelief").andReturn();
-    response.then().statusCode(200);
-    Type userListType = new TypeToken<ArrayList<WorkClassHero>>(){}.getType();
-    List<WorkClassHero> workClassHeroList = RestClient.gson().fromJson(response.getBody().asString(),userListType);
-    workClassHeroList.stream().forEach(System.out::println);
-    return workClassHeroList;
-  }
 
   public static ReliefSummary getTaxReliefSummary(){
     Response response = RestClient.given().request().contentType("application/json")
@@ -47,6 +38,16 @@ public class OppenheimerService {
     response.then().statusCode(200);
     ReliefSummary reliefSummary = RestClient.gson().fromJson(response.getBody().asString(),ReliefSummary.class);
     return reliefSummary;
+  }
+
+  public static List<TaxRelief> getListOfTaxRelief(){
+    Response response = RestClient.given().request().contentType("application/json")
+        .get(oppenheimerServiceUrl+"/calculator/taxRelief").andReturn();
+    response.then().statusCode(200);
+    Type userListType = new TypeToken<ArrayList<TaxRelief>>(){}.getType();
+    List<TaxRelief> taxReliefList = RestClient.gson().fromJson(response.getBody().asString(),userListType);
+    taxReliefList.stream().forEach(System.out::println);
+    return taxReliefList;
   }
 
 }
