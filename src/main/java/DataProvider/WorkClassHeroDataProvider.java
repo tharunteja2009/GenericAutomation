@@ -7,7 +7,9 @@ import java.util.List;
 
 public class WorkClassHeroDataProvider {
 
-  public static WorkClassHero getSingleWorkClassHero(){
+  static public List<WorkClassHero> recordedWorkClassHeros = new ArrayList<>();
+
+  public static WorkClassHero getSingleWorkClassHero() {
     WorkClassHero workClassHero = new WorkClassHero();
     workClassHero.setBirthday("10091990");
     workClassHero.setGender("M");
@@ -15,10 +17,11 @@ public class WorkClassHeroDataProvider {
     workClassHero.setNatid("123456");
     workClassHero.setSalary("1000");
     workClassHero.setTax("100");
+    recordedWorkClassHeros.add(workClassHero);
     return workClassHero;
   }
 
-  public static List<WorkClassHero> getMultipleWorkClassHero(DataTable table){
+  public static List<WorkClassHero> getMultipleWorkClassHero(DataTable table) {
     List<WorkClassHero> workClassHeroList = new ArrayList<>();
     List<String> natids = table.column(0);
     List<String> names = table.column(1);
@@ -26,7 +29,7 @@ public class WorkClassHeroDataProvider {
     List<String> birthdays = table.column(3);
     List<String> salary = table.column(4);
     List<String> tax = table.column(5);
-    for (int i=1;i<natids.size();i++) {
+    for (int i = 1; i < natids.size(); i++) {
       WorkClassHero workClassHero = new WorkClassHero();
       workClassHero.setBirthday(birthdays.get(i));
       workClassHero.setGender(genders.get(i));
@@ -35,6 +38,9 @@ public class WorkClassHeroDataProvider {
       workClassHero.setSalary(salary.get(i));
       workClassHero.setTax(tax.get(i));
       workClassHeroList.add(workClassHero);
+    }
+    for(WorkClassHero hero : workClassHeroList) {
+      recordedWorkClassHeros.add(hero);
     }
     return workClassHeroList;
   }
