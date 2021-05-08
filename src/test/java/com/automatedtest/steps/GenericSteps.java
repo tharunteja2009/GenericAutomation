@@ -90,9 +90,8 @@ public class GenericSteps {
   public void user_trigger_bulk_insertion_api() throws Exception {
     homePage = new HomePage(driver);
     homePage.clickOnChooseFile();
-    Runtime.getRuntime().exec(
-        "rundll32 url.dll,FileProtocolHandler " + System.getProperty("user.dir")
-            + "\\src\\main\\resources\\upload.exe");
+    Runtime.getRuntime().exec( System.getProperty("user.dir")
+        + "\\src\\main\\resources\\upload.exe " + System.getProperty("user.dir")+"\\src\\main\\resources\\Workhero.csv");
     Thread.sleep(5000);
   }
 
